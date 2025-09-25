@@ -1,1 +1,921 @@
+<html>
 
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>Yam Mathhub - Home</title>
+
+  <style>
+    :root {
+  --bg-color: #fff;
+  --topic-bg-color: #fff;
+  --text-color: #000;
+  --text2-color: #999;
+  --border-color: #ccc;
+}
+
+:root.dark {
+  --bg-color: #181818;
+  --topic-bg-color: #333;
+  --text-color: #ffffff;
+  --text2-color: #aaaaaa;
+  --border-color: #444444;
+}
+
+body {
+  font-family: Arial, san-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  padding: 20px 15px 0;
+  margin: 0 0 50px;
+}
+
+header span {
+  font-size: 14px;
+}
+
+header h2 {
+  margin: 0 0 -2px;
+  font-size: 28px;
+}
+
+header h4 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.colors {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: var(--text2-color);
+}
+
+.colors div {
+  display: inline-block;
+  padding: 0 2px 0;
+  margin: 0 2px 0;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.colors div:hover {
+  transform: scale(1.1);
+}
+.colors div:active {
+  transform: scale(1);
+}
+
+.topic-tit {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 15px 10px;
+}
+
+.topic-shell {
+  margin: 0 0 50px;
+}
+
+.topic {
+  font-size: 16px;
+  border-top: 1px var(--border-color) solid;
+  background-color: var(--topic-bg-color);
+  transition: border-color 0.3s ease;
+}
+
+.topic div {
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px var(--border-color) solid;
+  padding: 12px 20px 12px;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.topic div:hover {
+  background-color: rgba(95, 189, 255, 0.15);
+}
+
+.topic div i {
+  aposition: absolute;
+  atop: 0;
+  abottom: 0;
+  aleft: 0;
+  color: var(--text2-color);
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+  zborder: 1px red solid;
+  transition: color 0.3s ease;
+}
+
+.name {
+  display: block;
+  font-size: 12px;
+  color: var(--text2-color);
+  transition: color 0.3s ease;
+}
+
+.tit {
+  cursor: pointer;
+  padding: 15px 15px 15px;
+  border-bottom: 1px var(--border-color) solid;
+  background-color: var(--topic-bg-color);
+  position: sticky;
+  top: 0px;
+  filter: brightness(0.95);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tit span {
+  padding-left: 5px;
+}
+
+summary {
+  position: relative;
+  z-index: 900;
+}
+
+summary::marker,
+summary::-webkit-details-marker {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    padding: 20px 25vw 15px;
+  }
+
+  .topic-tit {
+    padding: 0 25vw 10px;
+  }
+
+  .topic-shell {
+    padding: 0 25vw 20px;
+  }
+
+  .topic {
+    border-left: 1px var(--border-color) solid;
+    border-right: 1px var(--border-color) solid;
+    jmargin: 0 0 40px;
+  }
+
+  .bnt-shell {
+    display: block;
+    margin: -60px 0 50px;
+  }
+
+  .bnt-shell button:nth-child(1) {
+    left: 25vw;
+  }
+
+  .bnt-shell button:nth-child(2) {
+    right: 25vw;
+  }
+}
+
+.game-shell {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  display: inline-block;
+  background: var(--bg-color);
+  background: linear-gradient(0deg, var(--bg-color) 20%, rgba(0, 0, 0, 0) 100%);
+  transition: background 0.3s ease;
+}
+
+#hide {
+  position: fixed;
+  z-index: 1001;
+  bottom: 0;
+  right: 0;
+  color: var(--text2-color);
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+#hide:hover {
+  transform: scale(1.1);
+}
+#hide:active {
+  transform: scale(1);
+}
+
+.my-pet-shell {
+  position: absolute;
+  z-index: 80;
+  padding: 10px 30px 5px;
+  transition: right 0.1s ease;
+}
+
+#pet-wrapper {
+  display: inline-block;
+}
+
+#my-pet {
+  position: relative;
+  font-size: 34px;
+  cursor: pointer;
+  animation: 0.6s ease-in-out infinite walk;
+}
+
+#my-pet:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+
+#blood {
+  position: absolute;
+  top: -2px;
+  bottom: -4px;
+  left: -2px;
+  right: -2px;
+  z-index: 100;
+  opacity: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/media/image/blood.png");
+  transition: opacity 0.3s ease;
+  filter: hue-rotate(80deg);
+  -webkit-filter: hue-rotate(80deg);
+}
+
+@keyframes walk {
+  0% {
+    transform: scaleX(1);
+  }
+
+  48% {
+    transform: scaleX(1.15);
+  }
+
+  52% {
+    transform: scaleX(1.15);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  75% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+  }
+}
+
+#pet-say {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px var(--border-color) solid;
+  border-radius: 8px;
+  background-color: var(--topic-bg-color);
+  color: var(--text-color);
+  opacity: 0;
+  transition: opacity 0.5s ease, background-color 0.3s ease,
+    border-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 600px) {
+  #my-pet {
+    font-size: 28px;
+  }
+
+  #pet-say {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="colors">
+      <div id="theme-toggle" style="width: 28px; text-align:right;"><i class="fa-solid fa-sun"></i></div>
+    </div>
+
+    <span>哩度係</span>
+    <h2>Yam Mathhub</h2>
+    <h4>Yam整合咗啲網上數學資源，希望可以幫到你</h4>
+  </header>
+
+  <div style="min-height:100vh">
+
+    <div class="topic-tit">DSE 數學</div>
+    <div class="topic-shell">
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>代數 Algebra</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            二次方程 Quadratic Equation
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            複數 Complex Number
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            函數及其圖像 Functions & Graph
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            指數與對數函數 Exponential & Logarithmic Functions
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            多項式 Polynomial
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            變分 Variation
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            等差與等比數列 Arithmetic & Geometric Sequence
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+            不等式與線性規劃 Inequalities & Linear Programming
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>幾何 Geometry</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>圓 Circle
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>直線方程 Equations of Straight Line
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>圓方程 Equations of Circle
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>軌跡 Locus
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>三角比 Trigonometric Ratio
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>三角學的平面應用 Application of Trigonometry in 2D Problems
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>三角學的三維應用 Application of Trigonometry in 3D Problems
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>統計 Statistics</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>排列與組合 Permutation & Combination
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>概率 Probability
+          </div>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>離差的度量 Measures of Dispersion
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="topic-tit">DSE M2</div>
+    <div class="topic-shell">
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>Mathematical Induction</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>The Binomial Theorem</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>Trigonometric Functions</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>Limits and Derivatives</span></summary>
+          <div class="block">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="topic-tit">其他 Others</div>
+    <div class="topic-shell">
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>線性代數 Linear Algebra</span></summary>
+          <div class="block" onclick="window.open('https://www.youtube.com/playlist?list=PLHXZ9OQGMqxfUl0tcqPNTJsb7R6BqSLo6', '_blank');">
+            <i class="fa-brands fa-youtube"></i>
+            <span>
+              Linear Algebra (Full Course)
+              <span class="name">Dr. Trefor Bazett</span>
+            </span>
+          </div>
+        </details>
+      </div>
+      <div class="topic">
+        <details>
+          <summary class="tit"><span>多變量微積分 Multivariable Calculus</span></summary>
+          <div class="block" onclick="window.open('https://www.youtube.com/playlist?list=PLDesaqWTN6ESk16YRmzuJ8f6-rnuy0Ry7', '_blank');">
+            <i class="fa-brands fa-youtube"></i>
+            <span>
+              Calculus 3 (Full Length Videos)
+              <span class="name">Professor Leonard</span>
+            </span>
+          </div>
+          <div class="block" onclick="window.open('https://personal.math.ubc.ca/~CLP/CLP3/clp_3_mc/frontmatter-2.html', '_blank');">
+            <i class="fa-regular fa-file-lines"></i>
+            <span>
+              CLP-3 Multivariable Calculus
+              <span class="name">Joel Feldman, Andrew Rechnitzer, Elyse Yeager</span>
+            </span>
+          </div>
+        </details>
+      </div>
+    </div>
+    
+    <div style="height:100px;"></div>
+    
+  </div>
+
+  <div id="hide"><i class="fa-solid fa-eye-slash"></i></div>
+  <div class="game-shell">
+
+    <div class="my-pet-shell">
+      <div id="pet-say">✨</div>
+      <div id="pet-wrapper">
+        <div id="my-pet">
+          <div id="blood"></div>
+          🐈
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dark mode management
+    let isDarkMode = false;
+    // Check system preference for dark mode
+    function checkSystemTheme() {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    // Toggle dark mode
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      updateTheme();
+      updateThemeToggleIcon();
+    }
+    // Update theme based on current settings
+    function updateTheme() {
+      const root = document.documentElement;
+      if (isDarkMode) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+    }
+    // Update theme toggle icon
+    function updateThemeToggleIcon() {
+      const toggleButton = document.getElementById('theme-toggle');
+      const icon = toggleButton.querySelector('i');
+      if (isDarkMode) {
+        icon.className = 'fa-solid fa-moon';
+      } else {
+        icon.className = 'fa-solid fa-sun';
+      }
+    }
+    // 宠物表情列表
+    const petEmojis = [
+      "🐕",
+      "🐈",
+      "🐈‍⬛",
+      "🐓",
+      "🐁",
+      "🐄",
+      "🦆",
+      "💸",
+      "🦠",
+      "🪅",
+      "🧱",
+      "🧽",
+      "✏️",
+      "🍩",
+      "🐛",
+      "🦗",
+      "🪳",
+      "🪰",
+      "🦭",
+      "🦕",
+      "🦖",
+      "🦍",
+      "🐋"
+    ];
+    // 鼓勵語句
+    const encouragements = [
+      "加油呀",
+      "繼續努力",
+      "相信自己！",
+      "知識就係力量",
+      "你進步緊嘅~",
+      "堅持就係勝利",
+      "我哋一齊努力吖",
+      "每日都進步啲啲",
+      "保持好奇心"
+    ];
+    let pet = document.getElementById("my-pet");
+    let petWrapper = document.getElementById("pet-wrapper");
+    let petSay = document.getElementById("pet-say");
+    let gameShell = document.querySelector(".game-shell");
+    let petShell = document.querySelector(".my-pet-shell");
+    let isWalking = true;
+    let needsAttention = false;
+    let walkDirectionX = 1; // 1為向右，-1為向左
+    let walkDirectionY = 0; // 1為向上，-1為向下，0為水平
+    let currentX = window.innerWidth - 100; // 初始X位置
+    let currentY = 10; // 初始Y位置（距離底部）
+    let isPaused = false; // 是否暫停行走
+    let pauseTime = 0; // 暫停計時器
+    let directionChangeTimer = 0; // 方向改變計時器
+    let clickCount = 0; // 點擊計數器
+    let clickTimestamps = []; // 點擊時間戳陣列
+    let isDead = false; // 是否死亡
+    let isHidden = false; // 是否隱藏
+    // 随机选择宠物
+    function randomizePet() {
+      const randomIndex = Math.floor(Math.random() * petEmojis.length);
+      const emojiText = petEmojis[randomIndex];
+      pet.innerHTML = `<div id="blood"></div>${emojiText}`;
+    }
+    // 隨機改變方向
+    function randomChangeDirection() {
+      const directions = [{
+          x: 1,
+          y: 0
+        }, // 向右
+        {
+          x: -1,
+          y: 0
+        }, // 向左
+        {
+          x: 1,
+          y: 1
+        }, // 右上
+        {
+          x: -1,
+          y: 1
+        }, // 左上
+        {
+          x: 1,
+          y: -1
+        }, // 右下
+        {
+          x: -1,
+          y: -1
+        }, // 左下
+        {
+          x: 0,
+          y: 1
+        }, // 向上
+        {
+          x: 0,
+          y: -1
+        } // 向下
+      ];
+      const newDirection =
+        directions[Math.floor(Math.random() * directions.length)];
+      walkDirectionX = newDirection.x;
+      walkDirectionY = newDirection.y;
+      // 重置方向改變計時器
+      directionChangeTimer = Math.floor(Math.random() * 180) + 120;
+    }
+    // 移動寵物
+    function movePet() {
+      if (!isWalking || isDead) return;
+      // 走走停停邏輯
+      if (isPaused) {
+        pauseTime--;
+        if (pauseTime <= 0) {
+          isPaused = false;
+          pet.style.animation = "0.6s ease-in-out infinite walk";
+        }
+        return;
+      }
+      // 隨機暫停
+      if (Math.random() < 0.008) {
+        isPaused = true;
+        pauseTime = Math.floor(Math.random() * 60) + 30;
+        pet.style.animation = "none";
+        return;
+      }
+      // 方向改變計時器倒數
+      directionChangeTimer--;
+      // 隨機改變方向
+      if (directionChangeTimer <= 0 && Math.random() < 0.05) {
+        randomChangeDirection();
+      }
+      // 移動位置
+      currentX += walkDirectionX * 1.2;
+      currentY += walkDirectionY * 0.8;
+      // 邊界檢測
+      let hitBoundary = false;
+      if (currentX <= 0) {
+        currentX = 0;
+        walkDirectionX = 1;
+        hitBoundary = true;
+      } else if (currentX >= window.innerWidth - 80) {
+        currentX = window.innerWidth - 80;
+        walkDirectionX = -1;
+        hitBoundary = true;
+      }
+      if (currentY <= 5) {
+        currentY = 5;
+        walkDirectionY = -1;
+        hitBoundary = true;
+      } else if (currentY >= 50) {
+        currentY = 50;
+        walkDirectionY = 1;
+        hitBoundary = true;
+      }
+      if (hitBoundary) {
+        directionChangeTimer = Math.floor(Math.random() * 60) + 30;
+      }
+      // 鏡像設定
+      if (walkDirectionX > 0) {
+        petWrapper.style.transform = "scaleX(-1)";
+      } else if (walkDirectionX < 0) {
+        petWrapper.style.transform = "scaleX(1)";
+      }
+      // 更新位置
+      petShell.style.right = window.innerWidth - currentX - 80 + "px";
+      petShell.style.bottom = currentY + "px";
+    }
+    // 显示鼓励话语
+    function showEncouragement() {
+      if (needsAttention || isDead) return;
+      const randomEncouragement =
+        encouragements[Math.floor(Math.random() * encouragements.length)];
+      petSay.textContent = randomEncouragement;
+      petSay.style.opacity = "1";
+      setTimeout(() => {
+        petSay.style.opacity = "0";
+      }, 3000);
+    }
+    // 创建爱心粒子效果
+    function createHeartParticles(x, y) {
+      for (let i = 0; i < 6; i++) {
+        const heart = document.createElement("i");
+        heart.className = "fa-solid fa-heart";
+        heart.style.position = "fixed";
+        heart.style.left = x + Math.random() * 40 - 20 + "px";
+        heart.style.bottom = y + 20 + "px";
+        heart.style.color = "#ff69b4";
+        heart.style.fontSize = 14 + Math.random() * 8 + "px";
+        heart.style.pointerEvents = "none";
+        heart.style.animation = `heartFloat ${
+          1 + Math.random() * 0.5
+        }s ease-out forwards`;
+        heart.style.zIndex = "1000";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          if (heart.parentNode) {
+            heart.remove();
+          }
+        }, 2000);
+      }
+    }
+    // 停止行走并抖动
+    function startShaking() {
+      if (needsAttention || isDead) return;
+      needsAttention = true;
+      isWalking = false;
+      pet.style.animation = "0.2s ease-in-out infinite shake";
+      petSay.textContent = "⁉️";
+      petSay.style.opacity = "1";
+    }
+    // 停止抖动并继续行走
+    function stopShaking() {
+      needsAttention = false;
+      isWalking = true;
+      pet.style.animation = "0.6s ease-in-out infinite walk";
+      petSay.style.opacity = "0";
+    }
+    // 檢測快速點擊
+    function checkRapidClicks() {
+      const currentTime = Date.now();
+      clickTimestamps.push(currentTime);
+      // 移除10秒前的點擊記錄
+      clickTimestamps = clickTimestamps.filter(
+        (timestamp) => currentTime - timestamp <= 10000
+      );
+      // 如果10秒內點擊超過20次
+      if (clickTimestamps.length > 20 && !isDead) {
+        petDie();
+      }
+    }
+    // 寵物死亡函數
+    function petDie() {
+      isDead = true;
+      isWalking = false;
+      needsAttention = false;
+      // 顯示血液效果
+      const blood = document.getElementById("blood");
+      if (blood) {
+        blood.style.opacity = "1";
+      }
+      // 停止所有動畫
+      pet.style.animation = "none";
+      // 顯示死亡訊息
+      petSay.textContent = "啊啊啊啊啊啊啊啊";
+      petSay.style.opacity = "1";
+      // 死了就死了，永遠不復活 💀
+    }
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize dark mode based on system preference
+      isDarkMode = checkSystemTheme();
+      updateTheme();
+      updateThemeToggleIcon();
+      // Theme toggle button event listener
+      document.getElementById('theme-toggle').addEventListener('click', function() {
+        toggleDarkMode();
+      });
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        isDarkMode = event.matches;
+        updateTheme();
+        updateThemeToggleIcon();
+      });
+      // Initialize pet system
+      randomizePet();
+      // 單擊事件（檢測快速點擊）
+      pet.addEventListener("click", function(e) {
+        if (!isDead) {
+          checkRapidClicks();
+        }
+      });
+      // 双击事件
+      pet.addEventListener("dblclick", function(e) {
+        e.preventDefault();
+        if (isDead) return;
+        const rect = pet.getBoundingClientRect();
+        createHeartParticles(
+          rect.left + rect.width / 2,
+          window.innerHeight - rect.bottom
+        );
+        if (needsAttention) {
+          stopShaking();
+          setTimeout(() => {
+            petSay.textContent = "摸摸~";
+            petSay.style.opacity = "1";
+            setTimeout(() => {
+              petSay.style.opacity = "0";
+            }, 2000);
+          }, 500);
+        }
+      });
+      // 防止拖拽
+      pet.addEventListener("dragstart", function(e) {
+        e.preventDefault();
+      });
+      // 隱藏/顯示功能
+      const hideButton = document.getElementById("hide");
+      hideButton.addEventListener("click", function() {
+        if (isHidden) {
+          gameShell.style.display = "inline-block";
+          hideButton.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+          isHidden = false;
+        } else {
+          gameShell.style.display = "none";
+          hideButton.innerHTML = '<i class="fa-solid fa-eye"></i>';
+          isHidden = true;
+        }
+      });
+      // 移动循环
+      setInterval(movePet, 60);
+      // 随机说话
+      setInterval(() => {
+        if (Math.random() < 0.4 && !needsAttention && !isDead) {
+          showEncouragement();
+        }
+      }, 8000);
+      // 随机抖动吸引注意
+      setInterval(() => {
+        if (Math.random() < 0.3 && isWalking && !needsAttention && !isDead) {
+          startShaking();
+          setTimeout(() => {
+            if (needsAttention) {
+              stopShaking();
+            }
+          }, 15000);
+        }
+      }, 20000);
+      // 响应窗口大小变化
+      window.addEventListener("resize", function() {
+        currentX = Math.min(currentX, window.innerWidth - 80);
+      });
+      // 页面加载完成后开始说话
+      setTimeout(() => {
+        petSay.textContent = "哈佬！我係你嘅溫書buddy！";
+        petSay.style.opacity = "1";
+        setTimeout(() => {
+          petSay.style.opacity = "0";
+        }, 3000);
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
