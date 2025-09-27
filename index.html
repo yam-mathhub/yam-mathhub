@@ -10,15 +10,13 @@
   <link href="" rel="shortcut icon" />
   <title>Yam Mathhub - Home</title>
 
-  <style>
-    :root {
+  <style>:root {
   --bg-color: #fff;
   --topic-bg-color: #fff;
   --text-color: #000;
   --text2-color: #999;
   --border-color: #ccc;
 }
-
 :root.dark {
   --bg-color: #181818;
   --topic-bg-color: #333;
@@ -39,23 +37,19 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
   padding: 20px 15px 0;
   margin: 0 0 50px;
 }
-
 header span {
   font-size: 14px;
 }
-
 header h2 {
   margin: 0 0 -2px;
   font-size: 28px;
 }
-
 header h4 {
   margin: 0;
   font-weight: normal;
@@ -68,7 +62,6 @@ header h4 {
   top: 15px;
   color: var(--text2-color);
 }
-
 .colors div {
   display: inline-block;
   padding: 0 2px 0;
@@ -77,7 +70,6 @@ header h4 {
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
-
 .colors div:hover {
   transform: scale(1.1);
 }
@@ -90,7 +82,6 @@ header h4 {
   font-weight: bold;
   padding: 0 15px 10px;
 }
-
 .topic-shell {
   margin: 0 0 50px;
 }
@@ -99,10 +90,9 @@ header h4 {
   font-size: 16px;
   border-top: 1px var(--border-color) solid;
   background-color: var(--topic-bg-color);
-  transition: border-color 0.3s ease;
 }
 
-.topic div {
+.block {
   position: relative;
   cursor: pointer;
   border-bottom: 1px var(--border-color) solid;
@@ -111,14 +101,11 @@ header h4 {
   display: flex;
   align-items: center;
   flex-direction: row;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
-.topic div:hover {
+.block:hover {
   background-color: rgba(95, 189, 255, 0.15);
 }
-
-.topic div i {
+.block i {
   aposition: absolute;
   atop: 0;
   abottom: 0;
@@ -128,14 +115,18 @@ header h4 {
   width: 20px;
   text-align: center;
   zborder: 1px red solid;
-  transition: color 0.3s ease;
 }
-
+#sub i {
+  padding-left: 20px;
+}
 .name {
   display: block;
+  margin: 2px 0 0;
   font-size: 12px;
   color: var(--text2-color);
-  transition: color 0.3s ease;
+}
+#sum{
+  margin:0 0 30px;
 }
 
 .tit {
@@ -146,9 +137,7 @@ header h4 {
   position: sticky;
   top: 0px;
   filter: brightness(0.95);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .tit span {
   padding-left: 5px;
 }
@@ -157,13 +146,11 @@ summary {
   position: relative;
   z-index: 900;
 }
-
 summary::marker,
 summary::-webkit-details-marker {
   display: inline-block;
   font-size: 12px;
   color: var(--text-color);
-  transition: color 0.3s ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -235,18 +222,15 @@ summary::-webkit-details-marker {
   padding: 10px 30px 5px;
   transition: right 0.1s ease;
 }
-
 #pet-wrapper {
   display: inline-block;
 }
-
 #my-pet {
   position: relative;
   font-size: 34px;
   cursor: pointer;
   animation: 0.6s ease-in-out infinite walk;
 }
-
 #my-pet:after {
   content: "";
   z-index: -1;
@@ -260,7 +244,22 @@ summary::-webkit-details-marker {
   filter: blur(3px);
   -webkit-filter: blur(3px);
 }
-
+#pet-say {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px var(--border-color) solid;
+  border-radius: 8px;
+  background-color: var(--topic-bg-color);
+  color: var(--text-color);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 #blood {
   position: absolute;
   top: -2px;
@@ -295,7 +294,6 @@ summary::-webkit-details-marker {
     transform: scaleX(1);
   }
 }
-
 @keyframes shake {
   0% {
     transform: translateX(0) rotate(0deg);
@@ -317,7 +315,6 @@ summary::-webkit-details-marker {
     transform: translateX(0) rotate(0deg);
   }
 }
-
 @keyframes heartFloat {
   0% {
     opacity: 1;
@@ -328,24 +325,6 @@ summary::-webkit-details-marker {
     opacity: 0;
     transform: translateY(-100px) scale(0.5);
   }
-}
-
-#pet-say {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 4px 8px;
-  font-size: 12px;
-  border: 1px var(--border-color) solid;
-  border-radius: 8px;
-  background-color: var(--topic-bg-color);
-  color: var(--text-color);
-  opacity: 0;
-  transition: opacity 0.5s ease, background-color 0.3s ease,
-    border-color 0.3s ease, color 0.3s ease;
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 600px) {
@@ -374,166 +353,94 @@ summary::-webkit-details-marker {
   </header>
 
   <div style="min-height:100vh">
-
-    <div class="topic-tit">DSE 數學</div>
-    <div class="topic-shell">
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>代數 Algebra</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            二次方程 Quadratic Equation
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            複數 Complex Number
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            函數及其圖像 Functions & Graph
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            指數與對數函數 Exponential & Logarithmic Functions
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            多項式 Polynomial
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            變分 Variation
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            等差與等比數列 Arithmetic & Geometric Sequence
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-            不等式與線性規劃 Inequalities & Linear Programming
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>幾何 Geometry</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>圓 Circle
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>直線方程 Equations of Straight Line
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>圓方程 Equations of Circle
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>軌跡 Locus
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>三角比 Trigonometric Ratio
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>三角學的平面應用 Application of Trigonometry in 2D Problems
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>三角學的三維應用 Application of Trigonometry in 3D Problems
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>統計 Statistics</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>排列與組合 Permutation & Combination
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>概率 Probability
-          </div>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>離差的度量 Measures of Dispersion
-          </div>
-        </details>
-      </div>
+    <div id="content-container">
+      <!-- Content will be dynamically generated from XML -->
     </div>
-
-    <div class="topic-tit">DSE M2</div>
-    <div class="topic-shell">
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>Mathematical Induction</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>The Binomial Theorem</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>Trigonometric Functions</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>Limits and Derivatives</span></summary>
-          <div class="block">
-            <i class="fa-regular fa-file-lines"></i>
-          </div>
-        </details>
-      </div>
-    </div>
-
-    <div class="topic-tit">其他 Others</div>
-    <div class="topic-shell">
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>線性代數 Linear Algebra</span></summary>
-          <div class="block" onclick="window.open('https://www.youtube.com/playlist?list=PLHXZ9OQGMqxfUl0tcqPNTJsb7R6BqSLo6', '_blank');">
-            <i class="fa-brands fa-youtube"></i>
-            <span>
-              Linear Algebra (Full Course)
-              <span class="name">Dr. Trefor Bazett</span>
-            </span>
-          </div>
-        </details>
-      </div>
-      <div class="topic">
-        <details>
-          <summary class="tit"><span>多變量微積分 Multivariable Calculus</span></summary>
-          <div class="block" onclick="window.open('https://www.youtube.com/playlist?list=PLDesaqWTN6ESk16YRmzuJ8f6-rnuy0Ry7', '_blank');">
-            <i class="fa-brands fa-youtube"></i>
-            <span>
-              Calculus 3 (Full Length Videos)
-              <span class="name">Professor Leonard</span>
-            </span>
-          </div>
-          <div class="block" onclick="window.open('https://personal.math.ubc.ca/~CLP/CLP3/clp_3_mc/frontmatter-2.html', '_blank');">
-            <i class="fa-regular fa-file-lines"></i>
-            <span>
-              CLP-3 Multivariable Calculus
-              <span class="name">Joel Feldman, Andrew Rechnitzer, Elyse Yeager</span>
-            </span>
-          </div>
-        </details>
-      </div>
-    </div>
-    
     <div style="height:100px;"></div>
-    
   </div>
 
-  <div id="hide"><i class="fa-solid fa-eye-slash"></i></div>
-  <div class="game-shell">
+  <!-- XML Data embedded in the HTML -->
+  <script type="text/xml" id="math-data">
+    <mathHub>
+      <section id="useful-tools" title="Useful Tools">
+        <category title="Calculator">
+          <item title="Desmos" icon="fa-solid fa-calculator" url="https://www.desmos.com/?lang=en" />
+          <item title="Derivative Calculator" icon="fa-solid fa-calculator" url="https://www.derivative-calculator.net/" author="David Scherfgen" />
+          <item title="Integral Calculator" icon="fa-solid fa-calculator" url="https://www.integral-calculator.com/" author="David Scherfgen" />
+        </category>
+        <category title="Typesetting">
+          <item title="LaTeX" icon="fa-solid fa-file-lines" url="https://www.latex-project.org/" />
+          <item title="Overleaf" icon="fa-solid fa-file-lines" url="https://www.overleaf.com/" sub="true" />
+        </category>
+        <category title="Others">
+          <item title="SageMath" icon="fa-solid fa-wrench" url="https://doc.sagemath.org/" />
+        </category>
+      </section>
+      
+      <section id="dse-math" title="DSE Math">
+        <category title="Summary" id="sum">
+          <item title="E-book for DSE Math" icon="fa-solid fa-book" author="Yam" />
+        </category>
+        <category title="代數 Algebra">
+          <item title="二次方程 Quadratic Equation" icon="fa-regular fa-file-lines" />
+          <item title="二次方程 Quadratic Equation" icon="fa-regular fa-file-lines" sub="true" />
+          <item title="複數 Complex Number" icon="fa-regular fa-file-lines" />
+          <item title="函數及其圖像 Functions &amp; Graph" icon="fa-regular fa-file-lines" />
+          <item title="指數與對數函數 Exponential &amp; Logarithmic Functions" icon="fa-regular fa-file-lines" />
+          <item title="多項式 Polynomial" icon="fa-regular fa-file-lines" />
+          <item title="變分 Variation" icon="fa-regular fa-file-lines" />
+          <item title="等差與等比數列 Arithmetic &amp; Geometric Sequence" icon="fa-regular fa-file-lines" />
+          <item title="不等式與線性規劃 Inequalities &amp; Linear Programming" icon="fa-regular fa-file-lines" />
+        </category>
+        <category title="幾何 Geometry">
+          <item title="圓 Circle" icon="fa-regular fa-file-lines" />
+          <item title="直線方程 Equations of Straight Line" icon="fa-regular fa-file-lines" />
+          <item title="圓方程 Equations of Circle" icon="fa-regular fa-file-lines" />
+          <item title="軌跡 Locus" icon="fa-regular fa-file-lines" />
+          <item title="三角比 Trigonometric Ratio" icon="fa-regular fa-file-lines" />
+          <item title="三角學的平面應用 Application of Trigonometry in 2D Problems" icon="fa-regular fa-file-lines" />
+          <item title="三角學的三維應用 Application of Trigonometry in 3D Problems" icon="fa-regular fa-file-lines" />
+        </category>
+        <category title="統計 Statistics">
+          <item title="排列與組合 Permutation &amp; Combination" icon="fa-regular fa-file-lines" />
+          <item title="概率 Probability" icon="fa-regular fa-file-lines" />
+          <item title="離差的度量 Measures of Dispersion" icon="fa-regular fa-file-lines" />
+        </category>
+      </section>
+      
+      <section id="dse-m2" title="DSE M2">
+        <category title="Summary" id="sum">
+          <item title="E-book for DSE M2" icon="fa-solid fa-book" author="Yam" />
+        </category>
+        <category title="Mathematical Induction">
+          <item title="" icon="fa-regular fa-file-lines" />
+        </category>
+        <category title="The Binomial Theorem">
+          <item title="" icon="fa-regular fa-file-lines" />
+        </category>
+        <category title="Trigonometric Functions">
+          <item title="" icon="fa-regular fa-file-lines" />
+        </category>
+        <category title="Limits and Derivatives">
+          <item title="" icon="fa-regular fa-file-lines" />
+        </category>
+      </section>
+      
+      <section id="other-topics" title="Other Topics">
+        <category title="Linear Algebra">
+          <item title="Linear Algebra (Full Course)" icon="fa-brands fa-youtube" url="https://www.youtube.com/playlist?list=PLHXZ9OQGMqxfUl0tcqPNTJsb7R6BqSLo6" author="Dr. Trefor Bazett" />
+          <item title="Understanding Linear Algebra" icon="fa-solid fa-book" url="https://understandinglinearalgebra.org/ula.html" author="David Austin" />
+        </category>
+        <category title="Multivariable Calculus">
+          <item title="Calculus 3 (Full Length Videos)" icon="fa-brands fa-youtube" url="https://www.youtube.com/playlist?list=PLDesaqWTN6ESk16YRmzuJ8f6-rnuy0Ry7" author="Professor Leonard" />
+          <item title="CLP-3 Multivariable Calculus" icon="fa-solid fa-book" url="https://personal.math.ubc.ca/~CLP/CLP3/clp_3_mc/frontmatter-2.html" author="Joel Feldman, Andrew Rechnitzer, Elyse Yeager" />
+        </category>
+      </section>
+    </mathHub>
+  </script>
 
+  <div id="hide"><i class="fa-solid fa-eye"></i></div>
+  <div class="game-shell">
     <div class="my-pet-shell">
       <div id="pet-say">✨</div>
       <div id="pet-wrapper">
@@ -546,6 +453,72 @@ summary::-webkit-details-marker {
   </div>
 
   <script>
+    // XML Parsing and Content Generation
+    function parseXMLData() {
+      const xmlScript = document.getElementById('math-data');
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlScript.textContent, 'text/xml');
+      return xmlDoc;
+    }
+
+    function generateContent() {
+      const xmlDoc = parseXMLData();
+      const container = document.getElementById('content-container');
+      const sections = xmlDoc.querySelectorAll('section');
+      
+      let html = '';
+      
+      sections.forEach(section => {
+        const sectionTitle = section.getAttribute('title');
+        html += `<div class="topic-tit">${sectionTitle}</div>`;
+        html += `<div class="topic-shell">`;
+        
+        const categories = section.querySelectorAll('category');
+        categories.forEach(category => {
+          const categoryTitle = category.getAttribute('title');
+          const categoryId = category.getAttribute('id') || '';
+          
+          html += `<div class="topic"${categoryId ? ` id="${categoryId}"` : ''}>`;
+          html += `<details>`;
+          html += `<summary class="tit"><span>${categoryTitle}</span></summary>`;
+          
+          const items = category.querySelectorAll('item');
+          items.forEach(item => {
+            const title = item.getAttribute('title');
+            const icon = item.getAttribute('icon');
+            const url = item.getAttribute('url');
+            const author = item.getAttribute('author');
+            const isSub = item.getAttribute('sub') === 'true';
+            
+            let clickHandler = '';
+            if (url) {
+              clickHandler = `onclick="window.open('${url}', '_blank');"`;
+            }
+            
+            html += `<div class="block"${isSub ? ' id="sub"' : ''} ${clickHandler}>`;
+            html += `<i class="${icon}"></i>`;
+            
+            if (title || author) {
+              if (author) {
+                html += `<span>${title}<span class="name">${author}</span></span>`;
+              } else {
+                html += title;
+              }
+            }
+            
+            html += `</div>`;
+          });
+          
+          html += `</details>`;
+          html += `</div>`;
+        });
+        
+        html += `</div>`;
+      });
+      
+      container.innerHTML = html;
+    }
+
     // Dark mode management
     let isDarkMode = false;
     // Check system preference for dark mode
@@ -824,6 +797,9 @@ summary::-webkit-details-marker {
     }
     // Initialize everything
     document.addEventListener('DOMContentLoaded', function() {
+      // Generate content from XML
+      generateContent();
+      
       // Initialize dark mode based on system preference
       isDarkMode = checkSystemTheme();
       updateTheme();
@@ -875,11 +851,11 @@ summary::-webkit-details-marker {
       hideButton.addEventListener("click", function() {
         if (isHidden) {
           gameShell.style.display = "inline-block";
-          hideButton.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+          hideButton.innerHTML = '<i class="fa-solid fa-eye"></i>';
           isHidden = false;
         } else {
           gameShell.style.display = "none";
-          hideButton.innerHTML = '<i class="fa-solid fa-eye"></i>';
+          hideButton.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
           isHidden = true;
         }
       });
